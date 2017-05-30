@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\testsms\testsms\testsms\obj\Debug\testsms.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\testsms\testsms\testsms\bin\Debug\testsms.exe
+C:\Users\User\Desktop\testsms\testsms\testsms\bin\Debug\testsms.pdb
+C:\Users\User\Desktop\testsms\testsms\testsms\obj\Debug\testsms.exe
+C:\Users\User\Desktop\testsms\testsms\testsms\obj\Debug\testsms.pdb
+D:\server\wdsp\bin\root\localhost\testsms.exe
+D:\server\wdsp\bin\root\localhost\testsms.pdb

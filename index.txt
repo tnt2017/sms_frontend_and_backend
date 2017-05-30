@@ -1,0 +1,739 @@
+﻿
+<div ng-app="myApp" ng-controller="customersCtrl" ng-init="checkboxes = {checkbox1: true, checkbox2: false}; tovar='';">
+
+<table><tr valign="top"><td><blockquote>
+
+
+<h3>Текущий клиент</h3>
+
+
+<table border=1>
+
+    <tr>
+        <td>WorkId: </td>
+        <td><input name="workid" id="workid" ng-model="workid"   ng-checked="true" type="text" size="50"></td>
+        <td rowspan="7" valign='top'>
+
+
+
+Комент:<br><textarea id="comment" ng-model="comment" cols="30" rows="3"></textarea>
+
+
+	</td>
+    </tr>
+
+
+<tr>
+<td>ФИО: </td><td><input name="fio" id="fio" ng-model="fio"  ng-checked="true"  type="text" size="50"><br></td>
+</tr>
+
+<tr>
+<td>Адрес: </td><td><input name="adr" id="adr" ng-model="adr" ng-checked="true" type="text" size="50"><br></td>
+</tr>
+
+<tr>
+<td>Тел: </td><td><input name="tel" id="tel" ng-model="tel"  ng-checked="true" type="text" size="50">  <br></td>
+</tr>
+
+<tr>
+<td>Час. пояс: </td><td><input name="timedelta" id="timedelta" ng-model="timedelta"  ng-checked="true" type="text" size="50">  <br></td>
+</tr>
+
+<tr>
+<td>Время: </td><td><input name="mytime" id="mytime" ng-model="mytime"  ng-checked="true" type="text" size="50">  <br></td>
+</tr>
+
+
+
+
+</table>
+<br>
+
+<button type="button" ng-click="btn_click_call()"  ng-init="count=0"><span class="ng-scope">Позвонить</span></button>
+<button type="button" ng-click="btn_click_odobr()"  ng-init="count=0"><span class="ng-scope">Одобрен</span></button>
+<button type="button" ng-click="btn_click_otkaz()"  ng-init="count=0"><span class="ng-scope">Отказ</span></button>
+<button type="button" ng-click="btn_click_nedoz()"  ng-init="count=0"><span class="ng-scope">Недозвон</span></button>
+<br><br>
+<button type="button" ng-click="btn_click_perez()"  ng-init="count=0"><span class="ng-scope">Перезвон</span></button>
+
+  <input type="datetime-local" id="exampleInput" name="input" ng-model="example.value"
+      placeholder="yyyy-MM-ddTHH:mm:ss" min="2017-05-01T00:00:00" max="2017-12-31T00:00:00" required />
+
+  <br>
+  <tt>value = {{example.value | date: "yyyy-MM-ddTHH:mm:ss"}}</tt><br/>
+
+
+<br>
+Текст смс:<br>
+<textarea name="smstext" ng-model="smstext" >123</textarea>
+<br>
+
+<button type="button" ng-click="btn_click_sms1()"  ng-init="count=0"><span class="ng-scope">1</span></button>
+<button type="button" ng-click="btn_click_sms2()"  ng-init="count=0"><span class="ng-scope">2</span></button>
+<button type="button" ng-click="btn_click_sms3()"  ng-init="count=0"><span class="ng-scope">3</span></button>
+<button type="button" ng-click="btn_click_sms4()"  ng-init="count=0"><span class="ng-scope">4</span></button>
+<button type="button" ng-click="btn_click_sms5()"  ng-init="count=0"><span class="ng-scope">5</span></button>
+<button type="button" ng-click="send_sms()"  ng-init="count=0"><span class="ng-scope">Отправить</span></button>
+
+
+
+<h3>Выбранные товары</h3>
+
+<table>
+<tr>
+
+<td>Товар</td>
+<td>Цена</td>
+<td>X</td>
+</tr>
+
+
+
+
+<tr>
+<td>
+
+	<select ng-model="tovar1" ng-change="select_change1()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in names" value="{{x.Id}}">{{ x.Name}}</option>
+	</select><br>
+</td>
+<td>
+	<select ng-model="price1" type="number" ng-change="AddNumbers()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in prices1">{{ x.Price }}</option>
+	</select><br>
+</td>
+
+<td><button type="button" ng-click="tovar1=0; price1=0; tovar1name=0;" ng-init="count=0">X</button></td>
+</tr>
+
+<tr>
+<td>
+
+	<select ng-model="tovar2" ng-change="select_change2()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in names" value="{{x.Id}}">{{ x.Name}}</option>
+	</select><br>
+</td>
+<td>
+	<select ng-model="price2" type="number" ng-change="AddNumbers()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in prices2">{{ x.Price }}</option>
+	</select><br>
+</td>
+<td><button type="button" ng-click="tovar2=0; price2=0; tovar2name=0;" ng-init="count=0">X</button></td>
+</tr>
+
+
+<tr>
+<td>
+
+	<select ng-model="tovar3" ng-change="select_change3()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in names" value="{{x.Id}}">{{ x.Name}}</option>
+	</select><br>
+</td>
+<td>
+	<select ng-model="price3" type="number" ng-change="AddNumbers()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in prices3">{{ x.Price }}</option>
+	</select><br>
+</td>
+
+<td><button type="button" ng-click="tovar3=0; price3=0; tovar3name=0;" ng-init="count=0">X</button></td>
+</tr>
+
+<tr>
+<td>
+
+	<select ng-model="tovar4" ng-change="select_change4()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in names" value="{{x.Id}}">{{ x.Name}}</option>
+	</select><br>
+</td>
+<td>
+	<select ng-model="price4" type="number" ng-change="AddNumbers()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in prices4">{{ x.Price }}</option>
+	</select><br>
+</td>
+<td><button type="button" ng-click="tovar4=0; price4=0; tovar4name=0;" ng-init="count=0">X</button></td>
+</tr>
+
+
+
+<tr>
+<td>
+
+	<select ng-model="tovar5" ng-change="select_change5()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in names" value="{{x.Id}}">{{ x.Name}}</option>
+	</select><br>
+</td>
+<td>
+	<select ng-model="price5" type="number" ng-change="AddNumbers()">
+	<option value="">---Please select---</option>
+	<option ng-repeat="x in prices5">{{ x.Price }}</option>
+	</select><br>
+</td>
+<td><button type="button" ng-click="tovar5=0; price5=0; tovar5name=0;" ng-init="count=0">X</button></td>
+</tr>
+
+
+
+
+
+
+
+
+</table>
+
+<br>
+<label>Итого:</label><br>
+
+        <tt>{{tovar1name}} (id={{tovar1}}) </tt><tt>price1 = {{price1}}</tt> <br>
+        <tt>{{tovar2name}} (id={{tovar2}}) </tt><tt>price2 = {{price2}}</tt> <br>
+        <tt>{{tovar3name}} (id={{tovar3}}) </tt><tt>price3 = {{price3}}</tt> <br>
+        <tt>{{tovar4name}} (id={{tovar4}}) </tt><tt>price4 = {{price4}}</tt> <br>
+        <tt>{{tovar5name}} (id={{tovar5}}) </tt><tt>price5 = {{price5}}</tt> <br>
+
+	<tt>Цена с доставкой: {{totalsum}}</tt> 
+<br>
+
+<h3>Очередь дозвона</h3>
+
+UserId: 
+<input ng-model="userid" ng-change="input_change()"   type="text">
+
+
+<tt>userid = {{userid}}</tt>
+<tt>username = {{username}}</tt>
+<br>
+
+<label>Показать необработанные:
+    <input ng-model="checkboxes.checkbox1"  ng-checked="true" type="checkbox">
+</label>
+
+
+
+<br>
+<br>
+
+<div ng-show="checkboxes.checkbox1" id="special1">
+
+
+<table>
+<tr>
+<td>Id</td><td>Fio</td><td>Adr</td><td>sid</td><td>Час. пояс</td><td>Tel</td><td>X</td>
+</tr>
+	  <tr ng-repeat="x in clients" >
+	    <td><span ng-click="span_click_clients($event)" id="{{ x.Id }}" >{{ x.Id }}</span></td>
+	    <td><span ng-click="span_click_clients($event)" id="{{ x.Id }}" >{{ x.Fio }}</span></td>
+	    <td><span ng-click="span_click_clients($event)" id="{{ x.Id }}" >{{ x.Adr }}</span></td>
+	    <td><span ng-click="span_click_clients($event)" id="{{ x.Id }}" >{{ x.sid }}</span></td>
+	    <td><span ng-click="span_click_clients($event)" id="{{ x.Id }}" >{{ x.TimeDelta }}</span></td>
+
+	    <td><a href="tel:{{ x.Tel }}">{{ x.Tel }}</a></td>
+	<td>
+	    <a ng-click="deleteTask(task.ID)" class="pull-right"><i class="glyphicon glyphicon-trash"></i></a>
+	</td>
+        </tr>
+</table>
+
+</div>
+<br>
+
+
+</td>
+<td>
+
+<blockquote>
+
+
+
+<h3>Остатки</h3>
+
+<div class="prokrutka">
+
+	<table>
+	  <tr ng-repeat="x in names"  ng-click="alert('1')">
+	    <td><span ng-click="span_click_ostatki($event)" id="{{ x.Id }}" >{{ x.Id }}</span></td>
+	    <td><span ng-click="span_click_ostatki($event)" id="{{ x.Id }}" >{{ x.Name }}</span></td>
+	    <td><span ng-click="span_click_ostatki($event)" id="{{ x.Id }}" >{{ x.ostatok }} </span></td>
+ 	    <td><a ng-click="deleteTask(task.ID)" class="pull-right"><i class="glyphicon glyphicon-trash"></i></a></td>
+	  </tr>
+	</table>
+
+	<br>
+
+<!-- 
+
+	<div ng-repeat="x in names">
+	<p>INSERT into Sklad VALUES (NULL,'2017-04-27', {{ x.Id }}, {{ x.ostatok }}, 0, 20, 2, 0); </p>
+	</div>
+
+ -->
+
+
+</div>
+
+
+<table>
+	  <tr ng-repeat="x in history"  ng-click="alert('1')">
+	    <td>{{ x.WorkId }}</span></td>
+	    <td>{{ x.Name }}</span></td>
+	    <td>{{ x.Data }}</span></td>
+	    <td>{{ x.Comment }}</span></td>
+          </tr>
+</table>
+
+
+</div>
+</div>
+ 
+</td>
+</tr>
+</table>
+
+<h3>История</h3>
+
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+
+	$http.get("ostatki_mysql.php")
+	.then(function (response) {$scope.names = response.data.records;});
+
+   	$scope.userid = <? echo $_SESSION[id] ?>;
+ 	$scope.username="<? echo $_SESSION[login]; ?>"
+	$scope.tovar1="";
+	$scope.tovar2="";
+	$scope.tovar3="";
+	$scope.tovar4="";
+	$scope.tovar5="";
+
+	$scope.price1="";
+	$scope.price2="";
+	$scope.price3="";
+	$scope.price4="";
+	$scope.price5="";
+
+   	$scope.tovar1name="";
+   	$scope.tovar2name="";
+   	$scope.tovar3name="";
+   	$scope.tovar4name="";
+   	$scope.tovar5name="";
+
+   	$http.get("clients_mysql.php?id=" + $scope.userid)
+   	.then(function (response) {$scope.clients = response.data.records;
+
+      	$scope.workid=$scope.clients[0].Id;
+      	$scope.fio=$scope.clients[0].Fio;
+      	$scope.adr=$scope.clients[0].Adr;
+	$scope.tel=$scope.clients[0].Tel;
+	$scope.timedelta=$scope.clients[0].TimeDelta;
+
+	var Data = new Date();
+
+	var Year = Data.getFullYear();
+	var Month = Data.getMonth();
+	var Day = Data.getDate();
+
+	var Hour = Data.getHours();
+	var Minutes = Data.getMinutes();
+	var Seconds = Data.getSeconds();
+	
+	var deltaHour = parseInt(Hour) + parseInt($scope.timedelta);
+	$scope.mytime=deltaHour+":"+Minutes;
+
+	$scope.example = {
+        value: new Date(Year, Month, Day, Hour, Minutes)
+  	};
+
+});
+
+
+$scope.span_click_ostatki = function($event) 
+{
+      	angular.element($event.target).addClass('badge');
+	
+	if($scope.tovar1=="")
+      	{
+		$scope.tovar1=angular.element($event.target).attr('id'); 
+		$scope.updatetovarname1();
+        	$http.get("prices_mysql.php?id=" + $scope.tovar1)
+        	.then(function (response) {$scope.prices1 = response.data.records;});
+		return;
+	}
+	if($scope.tovar2=="")
+      	{
+      		$scope.tovar2=angular.element($event.target).attr('id'); 
+		$scope.updatetovarname2();
+      		$http.get("prices_mysql.php?id=" + $scope.tovar2)
+      		.then(function (response) {$scope.prices2 = response.data.records;});
+		return;
+	}
+	if($scope.tovar3=="")
+      	{
+      		$scope.tovar3=angular.element($event.target).attr('id'); 
+		$scope.updatetovarname3();
+      		$http.get("prices_mysql.php?id=" + $scope.tovar3)
+      		.then(function (response) {$scope.prices3 = response.data.records;});
+		return;
+	}
+	if($scope.tovar4=="")
+      	{
+      		$scope.tovar4=angular.element($event.target).attr('id'); 
+		$scope.updatetovarname4();
+      		$http.get("prices_mysql.php?id=" + $scope.tovar4)
+      		.then(function (response) {$scope.prices4 = response.data.records;});
+		return;
+	}
+	if($scope.tovar5=="")
+      	{
+      		$scope.tovar5=angular.element($event.target).attr('id'); 
+		$scope.updatetovarname5();
+      		$http.get("prices_mysql.php?id=" + $scope.tovar5)
+      		.then(function (response) {$scope.prices5 = response.data.records;});
+		return;
+	}
+}
+
+$scope.span_click_clients = function($event) 
+{
+      	$scope.WorkId=angular.element($event.target).attr('id');
+      	angular.element($event.target).addClass('badge');
+
+      	$http.get("cbyworkid_mysql.php?id=" + $scope.WorkId)
+      	.then(function (response) {$scope.current = response.data.records;
+
+	$scope.workid=$scope.current[0].Id;
+      	$scope.fio=$scope.current[0].Fio;
+      	$scope.adr=$scope.current[0].Adr;
+	$scope.tel=$scope.current[0].Tel;
+});
+
+}
+
+$scope.updatetovarname1 = function ()
+{
+	var index;
+	for (index = 0; index < $scope.names.length; ++index) 
+	{
+	    if($scope.names[index].Id==$scope.tovar1)
+	    {
+		$scope.tovar1name=$scope.names[index].Name;
+		//alert($scope.tovar1name);
+	    }
+	}
+}
+
+$scope.updatetovarname2 = function ()
+{
+	var index;
+	for (index = 0; index < $scope.names.length; ++index) 
+	{
+	    if($scope.names[index].Id==$scope.tovar2)
+	    {
+		$scope.tovar2name=$scope.names[index].Name;
+		//alert($scope.tovar1name);
+	    }
+	}
+}
+
+
+
+$scope.updatetovarname3 = function ()
+{
+	var index;
+	for (index = 0; index < $scope.names.length; ++index) 
+	{
+	    if($scope.names[index].Id==$scope.tovar3)
+	    {
+		$scope.tovar3name=$scope.names[index].Name;
+		//alert($scope.tovar1name);
+	    }
+	}
+}
+
+$scope.updatetovarname4 = function ()
+{
+	var index;
+	for (index = 0; index < $scope.names.length; ++index) 
+	{
+	    if($scope.names[index].Id==$scope.tovar4)
+	    {
+		$scope.tovar4name=$scope.names[index].Name;
+		//alert($scope.tovar1name);
+	    }
+	}
+}
+
+
+
+$scope.updatetovarname5 = function ()
+{
+	var index;
+	for (index = 0; index < $scope.names.length; ++index) 
+	{
+	    if($scope.names[index].Id==$scope.tovar5)
+	    {
+		$scope.tovar5name=$scope.names[index].Name;
+		//alert($scope.tovar1name);
+	    }
+	}
+}
+
+
+
+$scope.select_change1 = function($event) 
+{
+	$scope.updatetovarname1();
+
+	$http.get("prices_mysql.php?id=" + $scope.tovar1)
+        .then(function (response) {$scope.prices1 = response.data.records;}); 
+}
+
+$scope.select_change2 = function($event) 
+{
+	$scope.updatetovarname2();
+
+	$http.get("prices_mysql.php?id=" + $scope.tovar2)
+        .then(function (response) {$scope.prices2 = response.data.records;}); 
+}
+
+$scope.select_change3 = function($event) 
+{
+	$scope.updatetovarname3();
+
+	$http.get("prices_mysql.php?id=" + $scope.tovar3)
+        .then(function (response) {$scope.prices3 = response.data.records;}); 
+}
+
+$scope.select_change4 = function($event) 
+{
+	$scope.updatetovarname4();
+
+	$http.get("prices_mysql.php?id=" + $scope.tovar4)
+        .then(function (response) {$scope.prices4 = response.data.records;}); 
+}
+
+
+$scope.select_change5 = function($event) 
+{
+	$scope.updatetovarname5();
+
+	$http.get("prices_mysql.php?id=" + $scope.tovar5)
+        .then(function (response) {$scope.prices5 = response.data.records;}); 
+}
+
+
+
+$scope.input_change = function() 
+{
+	alert("Подгрузка клиентов от юзера: " + $scope.userid);
+	$http.get("clients_mysql.php?id=" + $scope.userid)
+	.then(function (response) {$scope.clients = response.data.records;});
+
+};
+
+$scope.btn_click = function() 
+{
+      	$scope.count++;
+      	$scope.workid=$scope.clients[$scope.count].Id;
+     	$scope.fio=$scope.clients[$scope.count].Fio;
+      	$scope.adr=$scope.clients[$scope.count].Adr;
+     	$scope.tel=$scope.clients[$scope.count].Tel;
+	$scope.tovar1="";
+	$scope.tovar2="";
+	$scope.tovar3="";
+	$scope.tovar4="";
+	$scope.tovar5="";
+	$scope.price1="";
+	$scope.price2="";
+	$scope.price3="";
+	$scope.price4="";
+	$scope.price5="";
+
+	$http.get("history_mysql.php?id=" + $scope.workid)
+	.then(function (response) {$scope.history = response.data.records;});
+};
+
+
+$scope.btn_click_odobr = function() 
+{ 
+	if($scope.tovar1name!="" && $scope.price1!="")
+	{
+		var url="set_status.php?id=6&workid=" + $scope.workid;
+		//alert(url);
+		$http.get(url)
+	   	.then(function (response) {$scope.clients = response.data.records; alert ("статус установлен"); });
+
+		var url1="rks_insert.php?workid=" + $scope.workid + "&tel=" + $scope.tel + "&fio=" + $scope.fio + "&adr=" + $scope.adr + "&username=" + $scope.username + 
+			 "&userid=" + $scope.userid + "&comment=" + $scope.comment + "&totalsum=" + $scope.totalsum + "&pricename=" + $scope.tovar1name + " 1x" + $scope.price1;
+
+		if($scope.tovar2name!="")	
+		url1 = url1 + " " + $scope.tovar2name + " 1x" + $scope.price2;
+
+		if($scope.tovar3name!="")	
+		url1 = url1 + " " + $scope.tovar3name + " 1x" + $scope.price3;
+
+		if($scope.tovar4name!="")	
+		url1 = url1 + " " + $scope.tovar4name + " 1x" + $scope.price4;
+
+		if($scope.tovar5name!="")	
+		url1 = url1 + " " + $scope.tovar5name + " 1x" + $scope.price5;
+
+
+		url1 = url1 + "&tid1=" + $scope.tovar1;
+
+		if($scope.tovar2!="")
+		url1 = url1 + "&tid2=" + $scope.tovar2;
+
+		if($scope.tovar3!="")
+		url1 = url1 + "&tid3=" + $scope.tovar3;
+
+		if($scope.tovar4!="")
+		url1 = url1 + "&tid4=" + $scope.tovar4;
+
+		if($scope.tovar5!="")
+		url1 = url1 + "&tid5=" + $scope.tovar5;
+
+
+		url1 = url1 + "&tovar1name=" + $scope.tovar1name;
+		url1 = url1 + "&tovar2name=" + $scope.tovar2name;
+		url1 = url1 + "&tovar3name=" + $scope.tovar3name;
+		url1 = url1 + "&tovar4name=" + $scope.tovar4name;
+		url1 = url1 + "&tovar5name=" + $scope.tovar5name;
+
+		$http.get(url1).then(function (response) {$scope.clients = response.data.records; alert ("добавили в ркс"); });
+
+		alert("Добавили в РКС");
+		$scope.btn_click(); 
+	}
+	else
+	{
+		alert('Не выбран товар или цена');
+	}
+};
+
+$scope.btn_click_otkaz = function() 
+{ 
+	var url="set_status.php?id=5&workid=" + $scope.workid;
+	$http.get(url)
+	.then(function (response) {$scope.clients = response.data.records; alert ("статус установлен"); });
+	$scope.btn_click(); 
+};
+
+$scope.btn_click_nedoz = function() 
+{ 
+	var url="set_status.php?id=3&workid=" + $scope.workid;
+
+	$http.get(url)
+	.then(function (response) {$scope.clients = response.data.records; alert ("статус установлен"); });
+	$scope.btn_click(); 
+
+};
+
+
+$scope.btn_click_perez = function() 
+{ 
+	var d = new Date($scope.example.value);
+	var Year = d.getFullYear();
+	var Month = d.getMonth();
+	var Day = d.getDate();
+	var Hour = d.getHours();
+	var Minutes = d.getMinutes();
+	var perezvon_dt=Year + "-" + Month + "-" + Day + " " + Hour + ":" + Minutes;
+
+	//var formated_date = d.format("dd.mm.yyyy");
+	//alert (formated_date);
+	
+	var url="set_status.php?id=4&workid=" + $scope.workid + "&dt=" + perezvon_dt;
+	
+	alert(url);
+
+	$http.get(url)
+	.then(function (response) {$scope.clients = response.data.records; alert ("статус установлен"); });
+	$scope.btn_click(); 
+};
+
+
+
+$scope.btn_click_call = function() 
+{
+	//alert($scope.tel);
+	$scope.temptel=$scope.tel;
+	$scope.temptel=$scope.temptel.substr(1,$scope.length);
+
+	location.href="sip:8" + $scope.temptel;
+};
+
+
+$scope.btn_click_sms1  = function() 
+{
+	//alert($scope.tel);
+	$scope.smstext="Смс1";
+};
+
+$scope.btn_click_sms2  = function() 
+{
+	//alert($scope.tel);
+	$scope.smstext="Смс2";
+};
+
+$scope.btn_click_sms3  = function() 
+{
+	//alert($scope.tel);
+	$scope.smstext="Смс3";
+};
+
+$scope.btn_click_sms4  = function() 
+{
+	//alert($scope.tel);
+	$scope.smstext="Смс4";
+};
+
+$scope.btn_click_sms5  = function() 
+{
+	//alert($scope.tel);
+	$scope.smstext="Смс5";
+};
+
+
+$scope.btn_click2 = function($status) 
+{
+	if($status=="0")
+	{
+	   $http.get("clients_mysql.php?id=" + $scope.userid)
+	   .then(function (response) {$scope.clients = response.data.records;});
+	}
+	else
+	{
+	   var url="clients_mysql.php?id=" + $scope.userid + "&status=" + $status;
+	   alert (url);
+	   $http.get(url)
+	   .then(function (response) {$scope.clients = response.data.records;});
+	}
+};
+
+$scope.AddNumbers = function() 
+{
+	var a = Number($scope.price1 || 0);
+        var b = Number($scope.price2 || 0);
+	var c = Number($scope.price3 || 0);
+        var d = Number($scope.price4 || 0);
+        var e = Number($scope.price5 || 0);
+
+        $scope.totalsum = a+b+c+d+e+840;
+}
+
+
+});
+
+
+
+</script>

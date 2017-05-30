@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testsms", "testsms\testsms.csproj", "{A02DD0A7-420D-410D-898F-75455B5BD156}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "modemlist", "modemlist\modemlist.csproj", "{FB41F0F0-4345-4707-B2D8-1D3BA534007A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A02DD0A7-420D-410D-898F-75455B5BD156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A02DD0A7-420D-410D-898F-75455B5BD156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A02DD0A7-420D-410D-898F-75455B5BD156}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A02DD0A7-420D-410D-898F-75455B5BD156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB41F0F0-4345-4707-B2D8-1D3BA534007A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB41F0F0-4345-4707-B2D8-1D3BA534007A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB41F0F0-4345-4707-B2D8-1D3BA534007A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB41F0F0-4345-4707-B2D8-1D3BA534007A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

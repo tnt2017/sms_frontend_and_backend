@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\testsms\testsms\modemlist\obj\Debug\modemlist.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\testsms\testsms\modemlist\bin\Debug\modemlist.exe
+C:\Users\User\Desktop\testsms\testsms\modemlist\bin\Debug\modemlist.pdb
+C:\Users\User\Desktop\testsms\testsms\modemlist\obj\Debug\modemlist.exe
+C:\Users\User\Desktop\testsms\testsms\modemlist\obj\Debug\modemlist.pdb
+D:\server\wdsp\bin\root\localhost\modemlist.exe
+D:\server\wdsp\bin\root\localhost\modemlist.pdb
